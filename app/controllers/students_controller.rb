@@ -2,9 +2,11 @@ class StudentsController < ApplicationController
     def index
         @students = Student.all
     end
+
     def new
         @student = Student.new
     end
+
     def create
         @student = Student.new(students_params)
         if @student.save
@@ -14,6 +16,10 @@ class StudentsController < ApplicationController
             render 'new'
         end
 
+    end
+
+    def show
+        @student = Student.find(params[:id])
     end
 
     private 
